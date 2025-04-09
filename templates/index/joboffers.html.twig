@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Offres d'emploi
+{% endblock %}
+
+{% block body %}
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-center mb-12">Nos Offres d'Emploi</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for job in jobOffers %}
+        <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition duration-300">
+          <div class="mb-4">
+            <h2 class="text-xl font-bold text-gray-800 mb-1">{{ job.title }}</h2>
+            <p class="text-sm text-gray-500">
+              Entreprise :
+              <span class="font-medium text-gray-700">{{ job.company.name }}</span>
+            </p>
+          </div>
+          <div class="text-sm text-gray-600 space-y-1">
+            <p>
+              <strong>Lieu :</strong> {{ job.location }}
+            </p>
+            <p>
+              <strong>Salaire :</strong> {{ job.salary }} €
+            </p>
+          </div>
+          <p class="mt-4 text-gray-700 text-sm">{{ (job.description|slice(0, 120)) ~ '...' }}</p>
+          <div class="mt-6">
+            <a href="#" class="inline-block bg-indigo-600 text-white text-sm px-4 py-2 rounded-xl hover:bg-indigo-700 transition">Voir l'offre</a>
+          </div>
+        </div>
+      {% else %}
+        <p class="col-span-3 text-center text-gray-500">Aucune offre d'emploi disponible.</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
