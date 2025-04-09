@@ -26,7 +26,7 @@ class Company
     private ?string $website = null;
 
     #[ORM\Column]
-    private ?int $phoneNumber = null;
+    private ?string $phoneNumber = null;
 
     /**
      * @var Collection<int, JobOffer>
@@ -85,7 +85,7 @@ class Company
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(int $phoneNumber): static
+    public function setPhoneNumber(string $phoneNumber): static
     {
         $this->phoneNumber = $phoneNumber;
 

@@ -26,7 +26,7 @@ class Candidate
     private ?string $email = null;
 
     #[ORM\Column]
-    private ?int $phoneNumber = null;
+    private ?string $phoneNumber = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $bio = null;
@@ -91,7 +91,7 @@ class Candidate
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(int $phoneNumber): static
+    public function setPhoneNumber(string $phoneNumber): static
     {
         $this->phoneNumber = $phoneNumber;
 

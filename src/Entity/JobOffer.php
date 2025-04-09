@@ -29,7 +29,7 @@ class JobOffer
     private ?string $contractType = null;
 
     #[ORM\Column]
-    private ?float $salary = null;
+    private ?float $salary;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $publishedAt = null;
@@ -106,7 +106,7 @@ class JobOffer
         return $this->salary;
     }
 
-    public function setSalary(float $salary): static
+    public function setSalary(float $salary): self
     {
         $this->salary = $salary;
 
